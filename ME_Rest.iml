@@ -20,6 +20,7 @@
         <setting name="provider-name" value="" />
         <datasource-mapping>
           <factory-entry name="books" />
+          <factory-entry name="citys" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/Ressources/META-INF/persistence.xml" />
       </configuration>

@@ -50,6 +50,14 @@ public class BookService {
         return book;
     }
 
+    public void addBook(Book book) {
+        if (book != null) {
+            em.getTransaction().begin();
+            em.merge(book);
+            em.getTransaction().commit();
+        }
+    }
+
     public static void main(String[] args) {
         BookService bookService = new BookService();
         Book book = bookService.getBook(1);
