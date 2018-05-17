@@ -58,6 +58,15 @@ public class BookService {
         }
     }
 
+    public void change(Book book) {
+        if (book != null) {
+            em.getTransaction().begin();
+            em.merge(book);
+            em.flush();
+            em.getTransaction().commit();
+        }
+    }
+
     public static void main(String[] args) {
         BookService bookService = new BookService();
         Book book = bookService.getBook(1);

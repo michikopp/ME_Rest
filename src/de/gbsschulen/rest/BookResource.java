@@ -46,6 +46,8 @@ public class BookResource {
     }
 
     //curl -H "Content-Type: application/json" -X PUT -d '{"id":7, "autor":"Kopp", "isbn":"343242343","titel":"testtest"}' localhost:8080/rest/bookstore/createBook
+    //curl -H "Content-Type: application/json" -X PUT -T book.json localhost:8080/rest/bookstore/createBook
+
     @PUT
     @Path("/createBook")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -53,5 +55,16 @@ public class BookResource {
     public String puBook(Book book) {
         bookService.addBook(book);
         return "Hinzugefügt: " + book.getTitel();
+    }
+
+
+
+    @POST
+    @Path("/changeBook")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String changeBook(Book book) {
+        bookService.change(book);
+        return "Geändert: " +  book.toString();
     }
 }
